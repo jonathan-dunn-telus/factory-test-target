@@ -12,8 +12,9 @@ bash scripts/scaffold-github.sh
 bash scripts/seed-issues.sh
 
 # 3. Install the factory plugin into your Claude Code
-#    (from any Claude Code session)
-/plugin install telus/telus-claude-code-factory
+#    (from any Claude Code session — two-step: add marketplace, install plugin)
+/plugin marketplace add telus/telus-claude-code-factory
+/plugin install telus-claude-code-factory@telus-cc-factories
 
 # 4. Dry-run first
 /night-shift --dry-run
