@@ -1,0 +1,16 @@
+{
+  "name": "factory-test-target",
+  "version": "0.1.0",
+  "description": "Sandbox project for smoke-testing telus-claude-code-factory",
+  "type": "module",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint src tests"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "vitest": "^2.0.0"
+  },
+  "license": "MIT"
+}

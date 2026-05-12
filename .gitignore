@@ -1,0 +1,4 @@
+node_modules/
+.factory-sidecars/
+.DS_Store
+*.log
