@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { add, subtract, multiply, divide, power } from '../src/calculator.js';
+import { add, subtract, multiply, divide, power, mod } from '../src/calculator.js';
 
 describe('add', () => {
   it('adds two positive numbers', () => {
@@ -47,5 +47,26 @@ describe('power', () => {
   // 0 ** 0 evaluates to 1 in JS — matches the `**` operator semantics.
   it('returns 1 for power(0, 0) (matches JS ** semantics)', () => {
     expect(power(0, 0)).toBe(1);
+  });
+});
+
+describe('mod', () => {
+  it('returns the positive remainder for a positive dividend', () => {
+    expect(mod(10, 3)).toBe(1);
+  });
+  it('returns a non-negative result for a negative dividend (unlike %)', () => {
+    expect(mod(-1, 3)).toBe(2);
+  });
+  it('wraps a larger negative dividend into [0, b)', () => {
+    expect(mod(-10, 3)).toBe(2);
+  });
+  it('returns 0 when the dividend is 0', () => {
+    expect(mod(0, 3)).toBe(0);
+  });
+  it('returns 0 when a is an exact multiple of b', () => {
+    expect(mod(7, 7)).toBe(0);
+  });
+  it('throws on division by zero', () => {
+    expect(() => mod(1, 0)).toThrow('Division by zero');
   });
 });

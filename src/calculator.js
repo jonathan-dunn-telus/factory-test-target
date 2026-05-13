@@ -20,3 +20,10 @@ export function divide(a, b) {
 export function power(base, exponent) {
   return base ** exponent;
 }
+
+export function mod(a, b) {
+  if (b === 0) {
+    throw new Error('Division by zero');
+  }
+  return ((a % b) + b) % b;
+}
