@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { add, subtract, multiply, divide } from '../src/calculator.js';
+import { add, subtract, multiply, divide, power } from '../src/calculator.js';
 
 describe('add', () => {
   it('adds two positive numbers', () => {
@@ -31,5 +31,21 @@ describe('divide', () => {
   });
   it('throws on division by zero', () => {
     expect(() => divide(1, 0)).toThrow('Division by zero');
+  });
+});
+
+describe('power', () => {
+  it('raises a positive base to a positive exponent', () => {
+    expect(power(2, 3)).toBe(8);
+  });
+  it('returns 1 when exponent is 0', () => {
+    expect(power(5, 0)).toBe(1);
+  });
+  it('returns a fraction for a negative exponent', () => {
+    expect(power(2, -1)).toBe(0.5);
+  });
+  // 0 ** 0 evaluates to 1 in JS — matches the `**` operator semantics.
+  it('returns 1 for power(0, 0) (matches JS ** semantics)', () => {
+    expect(power(0, 0)).toBe(1);
   });
 });
