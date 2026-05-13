@@ -70,3 +70,65 @@ describe('mod', () => {
     expect(() => mod(1, 0)).toThrow('Division by zero');
   });
 });
+
+describe('input validation', () => {
+  describe('add', () => {
+    it('throws TypeError on non-number input', () => {
+      expect(() => add('1', 2)).toThrow(TypeError);
+      expect(() => add('1', 2)).toThrow('Both arguments must be numbers');
+    });
+    it('propagates NaN without throwing', () => {
+      expect(add(NaN, 2)).toBeNaN();
+    });
+  });
+
+  describe('subtract', () => {
+    it('throws TypeError on non-number input', () => {
+      expect(() => subtract(undefined, 2)).toThrow(TypeError);
+      expect(() => subtract(undefined, 2)).toThrow('Both arguments must be numbers');
+    });
+    it('propagates NaN without throwing', () => {
+      expect(subtract(NaN, 2)).toBeNaN();
+    });
+  });
+
+  describe('multiply', () => {
+    it('throws TypeError on non-number input', () => {
+      expect(() => multiply(null, 2)).toThrow(TypeError);
+      expect(() => multiply(null, 2)).toThrow('Both arguments must be numbers');
+    });
+    it('propagates NaN without throwing', () => {
+      expect(multiply(NaN, 2)).toBeNaN();
+    });
+  });
+
+  describe('divide', () => {
+    it('throws TypeError on non-number input', () => {
+      expect(() => divide({}, 2)).toThrow(TypeError);
+      expect(() => divide({}, 2)).toThrow('Both arguments must be numbers');
+    });
+    it('propagates NaN without throwing', () => {
+      expect(divide(NaN, 2)).toBeNaN();
+    });
+  });
+
+  describe('power', () => {
+    it('throws TypeError on non-number input', () => {
+      expect(() => power('2', 3)).toThrow(TypeError);
+      expect(() => power('2', 3)).toThrow('Both arguments must be numbers');
+    });
+    it('propagates NaN without throwing', () => {
+      expect(power(NaN, 2)).toBeNaN();
+    });
+  });
+
+  describe('mod', () => {
+    it('throws TypeError on non-number input', () => {
+      expect(() => mod('10', 3)).toThrow(TypeError);
+      expect(() => mod('10', 3)).toThrow('Both arguments must be numbers');
+    });
+    it('propagates NaN without throwing', () => {
+      expect(mod(NaN, 3)).toBeNaN();
+    });
+  });
+});
